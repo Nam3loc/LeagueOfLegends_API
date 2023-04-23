@@ -7,7 +7,7 @@ function App() {
   const [ searchText, setSearchText ] = useState('')
   const [ playerData, setPlayerData ] = useState({})
   // const apiKey = process.env.RIOT_API_KEY;
-  const apiKey = // insert API key;
+  const apiKey = "RGAPI-fd0fde88-519b-422f-9c1d-352a4cd8e032";
 
   function searchForPlayer(evt) {
     // Set up the correct API call
@@ -30,11 +30,18 @@ function App() {
         <input type='text' onChange={evt => setSearchText(evt.target.value)}></input>
         <button onClick={evt => searchForPlayer(evt)}>Search</button>
       </div>
+      {JSON.stringify(playerData) != '{}' 
+      ? 
+      <>
+        <p>{playerData.name}</p>
+        <img width="100" height="100" src={`http://ddragon.leagueoflegends.com/cdn/13.8.1/img/profileicon/${playerData.profileIconId}.png`}></img>
+        <p>Summoner Level {playerData.summonerLevel}</p>
+      </>
+      :
+      <><p>No player data</p></>
+      }
     </div>
   );
 }
 
 export default App;
-
-// https://www.youtube.com/watch?v=w9qaS6Q0Yr8
-// 17:58
