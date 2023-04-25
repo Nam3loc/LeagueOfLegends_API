@@ -7,7 +7,7 @@ function App() {
   const [ searchText, setSearchText ] = useState('')
   const [ playerData, setPlayerData ] = useState({})
   // const apiKey = process.env.RIOT_API_KEY;
-  const apiKey = "RGAPI-fd0fde88-519b-422f-9c1d-352a4cd8e032";
+  const apiKey = "RGAPI-2643774c-bce0-4723-899a-ed20b153a6a4l";
 
   function searchForPlayer(evt) {
     // Set up the correct API call
@@ -26,7 +26,7 @@ function App() {
   return (
     <div className="App">
       <div className='container'>
-        <h3>League API</h3>
+        <h3 className='font-header text-3xl'>League API</h3>
         <input type='text' onChange={evt => setSearchText(evt.target.value)}></input>
         <button onClick={evt => searchForPlayer(evt)}>Search</button>
       </div>
