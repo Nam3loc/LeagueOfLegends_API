@@ -4,14 +4,13 @@ import { useState } from 'react';
 import axios from 'axios';
 
 function App() {
-  const [ searchText, setSearchText ] = useState('')
-  const [ playerData, setPlayerData ] = useState({})
-  // const apiKey = process.env.RIOT_API_KEY;
-  const apiKey = "RGAPI-2643774c-bce0-4723-899a-ed20b153a6a4";
+  const [ searchText, setSearchText ] = useState('');
+  const [ playerData, setPlayerData ] = useState({});
+  const apiKey = process.env.REACT_APP_RIOT_API_KEY;
 
   function searchForPlayer(evt) {
     // Set up the correct API call
-    const APICallString = `https://na1.api.riotgames.com/lol/summoner/v4/summoners/by-name/${searchText}?api_key=${apiKey}`
+    const APICallString = `https://na1.api.riotgames.com/lol/summoner/v4/summoners/by-name/${searchText}?api_key=${apiKey}`;
 
     // Handle the API call
     axios.get(APICallString).then(function(response) {
