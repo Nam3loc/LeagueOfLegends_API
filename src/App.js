@@ -7,7 +7,7 @@ function App() {
   const [ searchText, setSearchText ] = useState('')
   const [ playerData, setPlayerData ] = useState({})
   // const apiKey = process.env.RIOT_API_KEY;
-  const apiKey = "RGAPI-2643774c-bce0-4723-899a-ed20b153a6a4l";
+  const apiKey = "RGAPI-2643774c-bce0-4723-899a-ed20b153a6a4";
 
   function searchForPlayer(evt) {
     // Set up the correct API call
@@ -26,15 +26,17 @@ function App() {
   return (
     <div className="App">
       <div className='container'>
-        <h3 className='font-header text-3xl'>League API</h3>
-        <input type='text' onChange={evt => setSearchText(evt.target.value)}></input>
-        <button onClick={evt => searchForPlayer(evt)}>Search</button>
+        <h3 className='w-screen h-20 text-5xl flex justify-center items-center text-white bg-purple-700 mb-20'>Summoner Finder</h3>
+        <input className='w-2/4 h-11 border-solid rounded border-gray-400 border-2 mb-20' type='text' onChange={evt => setSearchText(evt.target.value)}></input>
+        <button className=' bg-white hover:bg-gray-100 text-gray-800 font-semibold py-2 px-4 mx-0.5 border border-gray-400 rounded shadow' onClick={evt => searchForPlayer(evt)}>Search</button>
       </div>
       {JSON.stringify(playerData) != '{}' 
       ? 
       <>
         <p>{playerData.name}</p>
-        <img width="100" height="100" src={`http://ddragon.leagueoflegends.com/cdn/13.8.1/img/profileicon/${playerData.profileIconId}.png`}></img>
+        <div className='flex justify-center items-center'>
+          <img className='w-100px h-100px' src={`http://ddragon.leagueoflegends.com/cdn/13.8.1/img/profileicon/${playerData.profileIconId}.png`}></img>
+        </div>
         <p>Summoner Level {playerData.summonerLevel}</p>
       </>
       :
