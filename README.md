@@ -10,6 +10,8 @@ I have used Mobalytics and OP.GG in the past but find the applications clunky, s
 
 ## Application Overview
 
+Duration: *Add length here*
+
 *Add pictures here*
 
 I am using the Riot API to make it easy to search a summoner name to find relevant info. I also would love to eventually have a comparison page, comparing two account stats, as well as a page that automatically loads in rank and champion-specific statistics when you load in a game.
