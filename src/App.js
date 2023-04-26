@@ -62,7 +62,7 @@ function App() {
               <p>Summoner Level {playerData.summonerLevel}</p>
             </>
             :
-            <><p>No player data</p></>
+            <><p className='flex justify-center items-center mx-20'>No player data</p></>
           }
         </div>
 
@@ -74,7 +74,7 @@ function App() {
               <p key={index}>Match {index + 1}: {match}</p>
             ))
             :
-            <><p>No match history </p></>
+            <><p className='flex justify-center items-center mx-20'>No match history </p></>
           }
         </div>
       </div>
