@@ -1,43 +1,15 @@
-import logo from './logo.svg';
-import './App.css';
-import { useState } from 'react';
+// Imports
 import axios from 'axios';
+import { useState } from 'react';
+import { getPlayerMatchHistory } from './APIs/ListOfMatches.js';
+import { searchForPlayer } from './APIs/SummonerInfo.js';
 
 function App() {
   const [ searchText, setSearchText ] = useState('');
-  const [ playerData, setPlayerData ] = useState({});
-  const [ matchId, setMatchId ] = useState({});
-  const [ matchHistory, setMatchHistory ] = useState({});
   const apiKey = process.env.REACT_APP_RIOT_API_KEY;
 
-  function searchForPlayer(evt) {
-    // Set up the correct API call
-    const summonerInfo = `https://na1.api.riotgames.com/lol/summoner/v4/summoners/by-name/${searchText}?api_key=${apiKey}`;
-    
-    // Handle the API call
-    axios.get(summonerInfo).then(function(response) {
-      setPlayerData(response.data);
-      // console.log('puuid: ', response.data.puuid);
-      setMatchId(response.data.puuid);
-    }).catch(function(error) {
-      console.log(error);
-    })
-  }
-
-  // console.log(playerData);
-  console.log(matchId);
-
-  function getPlayerMatchHistory() {
-    // Set up the correct API call
-    const summonerMatchInfo = `https://americas.api.riotgames.com/lol/match/v5/matches/by-puuid/${matchId}/ids?start=0&count=20&api_key=${apiKey}`;
-
-    // Handle the API call
-    axios.get(summonerMatchInfo).then(function(response) {
-      setMatchHistory(response.data);
-    }).catch(function(error) {
-      console.log(error);
-    })
-  }
+  console.log('player data in app.js: ', searchForPlayer.playerData);
+  console.log('puuid in app.js: ', searchForPlayer.puuid);
 
   return (
     <div id="App">
@@ -66,7 +38,7 @@ function App() {
           }
         </div>
 
-        <div id='match-history-container' className='flex flex-col justify-center items-center'>
+        {/* <div id='match-history-container' className='flex flex-col justify-center items-center'>
           {
             matchHistory.length > 0 
             ? 
@@ -76,7 +48,7 @@ function App() {
             :
             <><p className='flex justify-center items-center mx-20'>No match history </p></>
           }
-        </div>
+        </div> */}
       </div>
     </div>
   );
